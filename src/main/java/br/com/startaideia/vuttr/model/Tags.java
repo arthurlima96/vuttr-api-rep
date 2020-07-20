@@ -44,17 +44,15 @@ public class Tags implements Serializable {
 		this.title = title;
 	}
 
-	
-	public List getTools() {
+	public List<Tools> getTools() {
 		return tools;
 	}
-
 	
-	public void setTools(List tools) {
+	public void setTools(List<Tools> tools) {
 		this.tools = tools;
 	}
 
-	
+
 	public Long getId() {
 		return id;
 	}

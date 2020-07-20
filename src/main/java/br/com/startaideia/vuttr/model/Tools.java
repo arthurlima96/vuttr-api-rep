@@ -80,18 +80,16 @@ public class Tools implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	
-	public List getTags() {
+	public List<Tags> getTags() {
 		return tags;
 	}
-
 	
-	public void setTags(List tags) {
+	public void setTags(List<Tags> tags) {
 		this.tags = tags;
 	}
 
-	
+
 	public Long getId() {
 		return id;
 	}
