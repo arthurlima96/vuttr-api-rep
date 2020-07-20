@@ -14,8 +14,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
-@Table(name = "tags")
+//@Entity
+//@Table(name = "tags")
 public class Tags implements Serializable {
 	
 	/**

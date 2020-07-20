@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -37,18 +38,19 @@ public class Tools implements Serializable {
 	@Column(name = "description", nullable = false)
 	private String description;
 	
-	@ManyToMany(fetch = FetchType.LAZY )
-	@JoinTable(
-		name = "tools_has_tags",
-		joinColumns = {
-			@JoinColumn(name = "tool_id")
-		},
-		inverseJoinColumns = {
-			@JoinColumn(name = "tag_id")
-		}
-	)
-		
-	private List<Tags> tags = new ArrayList<Tags>();
+//	@ManyToMany(fetch = FetchType.LAZY )
+//	@JoinTable(
+//		name = "tools_has_tags",
+//		joinColumns = {
+//			@JoinColumn(name = "tool_id")
+//		},
+//		inverseJoinColumns = {
+//			@JoinColumn(name = "tag_id")
+//		}
+//	)
+	
+	@ElementCollection
+	private List<String> tags;
 	
 	public Tools() {
 	}
@@ -77,11 +79,11 @@ public class Tools implements Serializable {
 		this.description = description;
 	}
 	
-	public List<Tags> getTags() {
+	public List<String> getTags() {
 		return tags;
 	}
 	
-	public void setTags(List<Tags> tags) {
+	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
 	
