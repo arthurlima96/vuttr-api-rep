@@ -52,6 +52,13 @@ public class Tools implements Serializable {
 	public Tools() {
 	}
 	
+	public Tools(String title, String link, String description, List<String> tags) {
+		this.title = title;
+		this.link = link;
+		this.description = description;
+		this.tags = tags;
+	}
+
 	public String getTitle() {
 		return title;
 	}
