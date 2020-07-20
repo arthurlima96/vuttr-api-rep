@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tags")
 public class Tags implements Serializable {
@@ -29,6 +31,7 @@ public class Tags implements Serializable {
 	private String title;
 	
 	@ManyToMany(mappedBy = "tags")
+	@JsonIgnore
 	private List<Tools> tools= new ArrayList<Tools>();
 	
 	public Tags() {

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +37,7 @@ public class Tools implements Serializable {
 	@Column(name = "description", nullable = false)
 	private String description;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY )
 	@JoinTable(
 		name = "tools_has_tags",
 		joinColumns = {
@@ -46,36 +47,31 @@ public class Tools implements Serializable {
 			@JoinColumn(name = "tag_id")
 		}
 	)
+		
 	private List<Tags> tags = new ArrayList<Tags>();
 	
 	public Tools() {
 	}
-
 	
 	public String getTitle() {
 		return title;
 	}
-
 	
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	
 	public String getLink() {
 		return link;
 	}
-
 	
 	public void setLink(String link) {
 		this.link = link;
 	}
-
 	
 	public String getDescription() {
 		return description;
 	}
-
 	
 	public void setDescription(String description) {
 		this.description = description;
@@ -88,11 +84,9 @@ public class Tools implements Serializable {
 	public void setTags(List<Tags> tags) {
 		this.tags = tags;
 	}
-
-
+	
 	public Long getId() {
 		return id;
 	}
-	
 	
 }
